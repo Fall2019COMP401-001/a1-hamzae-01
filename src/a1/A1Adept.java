@@ -68,7 +68,7 @@ public class A1Adept {
 			//avg = (float)((totalCost[big]+totalCost[small])/2);
 		}
 		System.out.println("Biggest: " + firstName[big] + " " + lastName[big] + " (" + String.format("%.2f", totalCost[big]) + ")");
-		System.out.println("Smallest: " + firstName[small] + " " + lastName[small] + " (" + totalCost[small] + ")");
+		System.out.println("Smallest: " + firstName[small] + " " + lastName[small] + " (" + String.format("%.2f",totalCost[small]) + ")");
 		System.out.println("Average: " + String.format("%.2f", (sum/totalCost.length)));
 	}
 }
