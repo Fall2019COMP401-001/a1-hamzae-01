@@ -21,14 +21,44 @@ public class A1Adept {
 		int count = scan.nextInt();
 		String[] firstName = new String[count];
 		String[] lastName = new String [count];
-		for(int j =0 ; j<count; j++) {
-			firstName[j] = scan.next();
-			lastName [j] = scan.next();
+		Double[] totalCost = new Double [count];
+		for(int zero = 0; zero < count; zero++) {
+			totalCost[zero] = 0.0;
+		}
+		for(int a =0 ; a<count; a++) {			
+			firstName[a] = scan.next();
+			lastName [a] = scan.next();
 			int groc = scan.nextInt();
+			
 			for(int k=0; k<groc; k++) {
 				int quantity = scan.nextInt();
-				String typeName = scan.next();
+				String typenames = scan.next();
+				
+			int index=0;
+				for(int l=0; l<type; l++) {
+					if(typenames.equals(typeName[l])) {
+						index = l;
+					}
+				}
+				totalCost[a] += cost[index] * quantity;
 			}
+		}
+		int big=0;
+		int small=0;
+		double sum=0;
+		for(int x=0; x<count; x++) {
+			if(totalCost[x] > totalCost[big]) {
+				big = x;
+			}
+			if(totalCost[x] < totalCost[small]) {
+				small = x;
+				 
+			}
+			sum += totalCost[x];
+			//avg = (float)((totalCost[big]+totalCost[small])/2);
+		}
+		System.out.println("Biggest: " + firstName[big] + " " + lastName[big] + " (" + String.format("%.2f", totalCost[big]) + ")");
+		System.out.println("Smallest: " + firstName[small] + " " + lastName[small] + " (" + totalCost[small] + ")");
+		System.out.println("Average: " + String.format("%.2f", (sum/totalCost.length)));
 	}
-}
 }
