@@ -22,7 +22,8 @@ public class A1Jedi {
 		//count is the amount of people
 		int [] customers = new int [type];
 		int [] finalquant = new int [type];		
-		for(int a =0 ; a<count; a++) {	
+		for(int a =0 ; a<count; a++) {
+			boolean[] purchaser = new boolean[type];
 			scan.next();
 			scan.next();
 			int groc = scan.nextInt();
@@ -39,9 +40,13 @@ public class A1Jedi {
 					}
 				}
 				finalquant[index] += quantity;
-				customers[index] += 1;
+				if (!purchaser[index]) {
+					customers[index] += 1;
+				}
+				purchaser[index] = true;
 			}
 		}
+		
 		for (int m=0; m<type; m++) {
 			/*if(customers[m] == 0) {
 				System.out.println("No");
@@ -54,6 +59,6 @@ public class A1Jedi {
 			} else {System.out.println("No customers bought " + typeName[m]);
 			
 			}
-			}
+		}
 }
 }
